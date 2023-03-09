@@ -14,7 +14,7 @@ export const Search = (props) => {
     const renderItem = ({ item }) => {
         const { createdAt, title, description, price, image, category, discount, quantity, id } = item;
         return (
-            <Pressable onPress={() => navigation.navigate('Detail', { id: id })} style={styles.productContainer} key={Math.random}>
+            <Pressable onPress={() => navigation.navigate('Detail', { id: id })} style={styles.productContainer} key={id}>
                 <View style={styles.productList}>
                     <View style={styles.imageContainer}>
                         <Image style={styles.images} resizeMode='cover' source={{ uri: image }} />

@@ -4,11 +4,9 @@ import {
     KeyboardAvoidingView, ScrollView, ToastAndroid
 } from 'react-native'
 import { UserContext } from '../UserContext';
+import { Entypo } from '@expo/vector-icons';
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// "email": "dinhquocdat2000@gmail.com",
-// "password": "1234567890"
 
 export const Login = (props) => {
     const { navigation } = props;
@@ -50,11 +48,15 @@ export const Login = (props) => {
                         onChangeText={setEmail}
                         placeholder='Email'
                         style={styles.textInput} />
-                    <TextInput
-                        value={password}
-                        onChangeText={setPassword}
-                        secureTextEntry={true}
-                        placeholder='Password' style={styles.textInput} />
+                    <View style={styles.fromPass}>
+                        <TextInput
+                            value={password}
+                            onChangeText={setPassword}
+                            secureTextEntry={true}
+                            placeholder='Password' style={styles.textInput} />
+                        <Entypo style={styles.eye} name="eye" size={24} color="black" />
+                    </View>
+
                     <Pressable
                         onPress={onLoginPress}
                         style={styles.button}>
@@ -79,16 +81,17 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     imageContainer: {
-        width: '100%',
-        height: 390,
+
     },
     image: {
+        height: 300,
         width: '100%',
-        height: '100%',
+        // height: '100%',
+        resizeMode: "cover",
     },
     plantaContainer: {
         alignItems: 'center',
-        marginTop: 28,
+        marginTop: 12,
     },
     planta: {
         color: 'red',
@@ -102,6 +105,8 @@ const styles = StyleSheet.create({
     slogan: {
         fontSize: 12,
         lineHeight: 26,
+        color: 'rgba(207, 207, 207, 1)',
+        fontWeight: 'bold',
     },
     login: {
         color: 'white',
@@ -112,18 +117,28 @@ const styles = StyleSheet.create({
     button: {
         width: '100%',
         height: 50,
-        borderRadius: 8,
-        backgroundColor: '#ABABAB',
+        borderRadius: 45,
+        backgroundColor: 'red',
         marginTop: 20,
         justifyContent: 'center',
         alignItems: 'center',
     },
     textInput: {
-        height: 33,
+        height: 44,
         lineHeight: 20,
-        borderBottomColor: '#7D7B7B',
-        borderBottomWidth: 1.5,
-        marginVertical: 4,
+        backgroundColor: "rgba(242, 242, 242, 1)",
+        marginVertical: 10,
+        paddingHorizontal: 10,
+        paddingRight: 35,
+        borderRadius: 5,
+    },
+    fromPass:{
+        position: "relative"
+    },
+    eye: {
+        position: "absolute",
+        right: 7,
+        marginVertical: 20,
     },
     formContainer: {
         paddingHorizontal: 32,

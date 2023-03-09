@@ -13,16 +13,6 @@ export const Home = (props) => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    // useEffect(async () => {
-    //     setIsLoading(true);
-    //     const res = await OnGetProductForHomePage();
-    //     setData(res);
-    //     setIsLoading(false);
-
-    //     return () => { res; };
-
-    // }, [])
-
     useEffect(() => {
 
         const unsubscribe = props.navigation.addListener('focus', () => {
@@ -71,7 +61,7 @@ export const Home = (props) => {
     const renderHeader = () => {
         return (
             <View>
-                <Image style = {{width: "100%"}} source={require('../../../assets/images/banner_manage_store2.jpg')} />
+                <Image style = {{height: 300, width: "100%", resizeMode: "cover"}} source={require('../../../assets/images/banner_manage_store2.jpg')} />
             </View>
         )
     }
