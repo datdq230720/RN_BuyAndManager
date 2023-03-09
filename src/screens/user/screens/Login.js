@@ -66,6 +66,18 @@ export const Login = (props) => {
                 <View style={styles.registerContainer}>
                     <Text onPress={() => navigation.navigate('Register')} style={styles.register}>Đăng ký</Text>
                 </View>
+                <View style={styles.formContainer}>
+                    <Pressable
+                        onPress={onLoginPress}
+                        style={styles.buttonLogin}>
+                        <Text style={styles.login}>Đăng nhập</Text>
+                    </Pressable>
+                    <Pressable
+                        onPress={onLoginPress}
+                        style={styles.buttonLogin}>
+                        <Text style={styles.login}>Đăng nhập</Text>
+                    </Pressable>
+                </View>
             </View>
         </ScrollView>
         /* </KeyboardAvoidingView> */
@@ -132,7 +144,7 @@ const styles = StyleSheet.create({
         paddingRight: 35,
         borderRadius: 5,
     },
-    fromPass:{
+    fromPass: {
         position: "relative"
     },
     eye: {
@@ -155,5 +167,15 @@ const styles = StyleSheet.create({
         marginTop: 11,
         alignItems: 'center',
         marginBottom: 20,
+    },
+    buttonLogin: {
+        width: '100%',
+        height: 50,
+        borderRadius: 45,
+        backgroundColor: 'white',
+        borderWidth: 0.5,
+        marginTop: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 })
