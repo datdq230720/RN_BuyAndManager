@@ -1,0 +1,143 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "password": "123456",
+      "manage": true,
+      "id": 1
+    },
+    {
+      "username": "testlan1",
+      "password": "123456",
+      "manage": false,
+      "id": 2
+    },
+    {
+      "username": "testlan2",
+      "password": "123456",
+      "manage": false,
+      "id": 3
+    },
+    {
+      "username": "testlan3",
+      "password": "123456",
+      "manage": false,
+      "id": 4
+    },
+    {
+      "username": "hahhaha",
+      "password": "654321",
+      "manage": false,
+      "id": 5
+    },
+    {
+      "username": "dat123",
+      "password": "123456",
+      "manage": false,
+      "id": 6
+    },
+    {
+      "username": "uer123",
+      "password": "123456",
+      "manage": false,
+      "id": 7
+    },
+    {
+      "username": "abc123",
+      "password": "123456",
+      "manage": false,
+      "id": 8
+    }
+  ],
+  "cart": [],
+  "history": [
+    {
+      "createAt": "2023-02-24T18:05:22.038Z",
+      "status": false,
+      "quantity": 5,
+      "total": 77777,
+      "id_user": 1,
+      "id": 1
+    },
+    {
+      "createAt": "2023-02-24T18:05:22.038Z",
+      "status": true,
+      "quantity": 2,
+      "total": 11155,
+      "id_user": 1,
+      "id": 2
+    },
+    {
+      "createAt": "2023-02-24T18:05:22.038Z",
+      "status": true,
+      "quantity": 3,
+      "total": 11199,
+      "id_user": 1,
+      "id": 3
+    },
+    {
+      "createAt": "2023-02-24T18:05:22.038Z",
+      "status": true,
+      "quantity": 5,
+      "total": 11287,
+      "id_user": 1,
+      "id": 4
+    },
+    {
+      "createAt": "2023-02-24T18:05:22.038Z",
+      "status": true,
+      "quantity": 1,
+      "total": 44,
+      "id_user": 1,
+      "id": 5
+    },
+    {
+      "createAt": "2023-02-25T02:57:33.987Z",
+      "status": false,
+      "quantity": 3,
+      "total": 24488,
+      "id_user": 2,
+      "id": 6
+    },
+    {
+      "createAt": "2023-02-25T02:59:01.858Z",
+      "status": false,
+      "quantity": 1,
+      "total": 44,
+      "id_user": 1,
+      "id": 7
+    },
+    {
+      "createAt": "2023-02-25T03:00:17.229Z",
+      "status": true,
+      "quantity": 1,
+      "total": 11111,
+      "id_user": 1,
+      "id": 8
+    },
+    {
+      "createAt": "2023-02-25T03:00:51.355Z",
+      "status": false,
+      "quantity": 5,
+      "total": 186,
+      "id_user": 1,
+      "id": 9
+    },
+    {
+      "createAt": "2023-02-25T14:50:59.904Z",
+      "status": false,
+      "quantity": 5,
+      "total": 152,
+      "id_user": 6,
+      "id": 10
+    },
+    {
+      "createAt": "2023-02-26T18:10:17.090Z",
+      "status": true,
+      "quantity": 1,
+      "total": 1200,
+      "id_user": 8,
+      "id": 11
+    }
+  ]
+}
