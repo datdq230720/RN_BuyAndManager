@@ -4,7 +4,7 @@ import {
     KeyboardAvoidingView, ScrollView, ToastAndroid
 } from 'react-native'
 import { UserContext } from '../UserContext';
-import { Entypo } from '@expo/vector-icons';
+import { Entypo, AntDesign } from '@expo/vector-icons';
 
 
 
@@ -15,6 +15,8 @@ export const Login = (props) => {
 
     const [email, setEmail] = useState('admin');
     const [password, setPassword] = useState('123456');
+    const [entry, setEntry] = useState(true);
+    const [nameEntry, setNameEntry] = useState('eye');
 
 
 
@@ -26,6 +28,16 @@ export const Login = (props) => {
             ToastAndroid.show('' + _status, ToastAndroid.TOP);
         }
 
+    }
+
+    const setPassEntry = async () => {
+        if (entry === true) {
+            setEntry(false);
+            setNameEntry('eye-with-line');
+        } else {
+            setEntry(true);
+            setNameEntry('eye');
+        }
     }
 
     return (
@@ -52,9 +64,13 @@ export const Login = (props) => {
                         <TextInput
                             value={password}
                             onChangeText={setPassword}
-                            secureTextEntry={true}
+                            secureTextEntry={entry}
                             placeholder='Password' style={styles.textInput} />
-                        <Entypo style={styles.eye} name="eye" size={24} color="black" />
+                        <Pressable
+                            onPress={setPassEntry}
+                            style={styles.eye}>
+                            <Entypo name={nameEntry} size={24} color="black" />
+                        </Pressable>
                     </View>
 
                     <Pressable
@@ -67,16 +83,22 @@ export const Login = (props) => {
                     <Text onPress={() => navigation.navigate('Register')} style={styles.register}>Đăng ký</Text>
                 </View>
                 <View style={styles.formContainer}>
-                    <Pressable
-                        onPress={onLoginPress}
-                        style={styles.buttonLogin}>
-                        <Text style={styles.login}>Đăng nhập</Text>
-                    </Pressable>
-                    <Pressable
-                        onPress={onLoginPress}
-                        style={styles.buttonLogin}>
-                        <Text style={styles.login}>Đăng nhập</Text>
-                    </Pressable>
+                    <View style={styles.iconLogin}>
+                        <Pressable
+                            onPress={onLoginPress}
+                            style={styles.buttonLogin}>
+                            <Text style={{ color: "black" }}>Đăng nhập bằng Google</Text>
+                        </Pressable>
+                        <AntDesign style={styles.icon} name="google" size={24} color="black" />
+                    </View>
+                    <View style={styles.iconLogin}>
+                        <Pressable
+                            onPress={onLoginPress}
+                            style={styles.buttonLogin}>
+                            <Text style={{ color: "black" }}>Đăng nhập bằng Facebook</Text>
+                        </Pressable>
+                        <Entypo style={styles.icon} name="facebook" size={24} color="black" />
+                    </View>
                 </View>
             </View>
         </ScrollView>
@@ -155,6 +177,7 @@ const styles = StyleSheet.create({
     formContainer: {
         paddingHorizontal: 32,
         marginTop: 10,
+        marginBottom: 10,
     },
     register: {
         fontWeight: '500',
@@ -166,7 +189,6 @@ const styles = StyleSheet.create({
     registerContainer: {
         marginTop: 11,
         alignItems: 'center',
-        marginBottom: 20,
     },
     buttonLogin: {
         width: '100%',
@@ -177,5 +199,13 @@ const styles = StyleSheet.create({
         marginTop: 20,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    iconLogin: {
+        position: 'relative',
+    },
+    icon: {
+        position: 'absolute',
+        right: 20,
+        marginVertical: 30
     },
 })
