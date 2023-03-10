@@ -72,7 +72,6 @@ export const Login = (props) => {
                             <Entypo name={nameEntry} size={24} color="black" />
                         </Pressable>
                     </View>
-
                     <Pressable
                         onPress={onLoginPress}
                         style={styles.button}>

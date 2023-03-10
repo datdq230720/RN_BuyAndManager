@@ -1,22 +1,25 @@
 import React, { useContext, useState } from 'react'
 import { StyleSheet, Text, View, Image, ScrollView, TextInput, Pressable, ToastAndroid } from 'react-native'
 import { UserContext } from '../UserContext';
+import { Entypo, AntDesign } from '@expo/vector-icons';
 
 
 export const Register = (props) => {
     const { navigation } = (props);
 
     const { onRegister } = useContext(UserContext);
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [entry, setEntry] = useState(true);
+    const [nameEntry, setNameEntry] = useState('eye');
 
     const register = async () => {
-        if (username == '' || password == '' || confirmPassword == '') {
+        if (email == '' || password == '' || confirmPassword == '') {
             ToastAndroid.show('Không được phép để trống', ToastAndroid.BOTTOM);
-        }else{
+        } else {
             if (confirmPassword == password) {
-                const res = await onRegister(username, password);
+                const res = await onRegister(email, password);
                 if (res == true) {
                     ToastAndroid.show('Đã đăng kí thành công bạn có thể đăng nhập', ToastAndroid.BOTTOM);
                     navigation.goBack();
@@ -26,6 +29,16 @@ export const Register = (props) => {
             } else {
                 ToastAndroid.show('Mật khẩu ko trùng khớp', ToastAndroid.BOTTOM);
             }
+        }
+    }
+
+    const setPassEntry = async () => {
+        if (entry === true) {
+            setEntry(false);
+            setNameEntry('eye-with-line');
+        } else {
+            setEntry(true);
+            setNameEntry('eye');
         }
     }
 
@@ -39,15 +52,34 @@ export const Register = (props) => {
                     <Text style={styles.slogan}>Mua sắm và trải nghiệm sản phẩm cùng phụ kiện độc đáo duy nhất tại Việt Nam</Text>
                 </View>
                 <View style={styles.formContainer}>
-                    <TextInput 
-                    value={username} onChangeText={setUsername}
-                    placeholder='Username' style={styles.textInput} />
-                    <TextInput 
-                    value={password} onChangeText={setPassword}
-                    placeholder='Password' style={styles.textInput} />
-                    <TextInput 
-                    value={confirmPassword} onChangeText={setConfirmPassword}
-                    placeholder='Confirm Password' style={styles.textInput} />
+                    <TextInput
+                        value={email}
+                        onChangeText={setEmail}
+                        placeholder='Email'
+                        style={styles.textInput} />
+                    <View style={styles.fromPass}>
+                        <TextInput
+                            value={password}
+                            onChangeText={setPassword}
+                            secureTextEntry={entry}
+                            placeholder='Password' style={styles.textInput} />
+                        <Pressable
+                            onPress={setPassEntry}
+                            style={styles.eye}>
+                            <Entypo name={nameEntry} size={24} color="black" />
+                        </Pressable>
+                    </View>
+                    <View style={styles.fromPass}>
+                        <TextInput
+                            value={confirmPassword} 
+                            onChangeText={setConfirmPassword}
+                            placeholder='Confirm Password' style={styles.textInput} />
+                        <Pressable
+                            onPress={setPassEntry}
+                            style={styles.eye}>
+                            <Entypo name={nameEntry} size={24} color="black" />
+                        </Pressable>
+                    </View>
                     <Pressable onPress={register} style={styles.button}>
                         <Text style={styles.login}>Đăng ký</Text>
                     </Pressable>
@@ -84,22 +116,33 @@ const styles = StyleSheet.create({
     button: {
         width: '100%',
         height: 50,
-        borderRadius: 8,
-        backgroundColor: '#221F1F',
+        borderRadius: 45,
+        backgroundColor: 'red',
         marginTop: 20,
         justifyContent: 'center',
         alignItems: 'center',
     },
     textInput: {
-        height: 33,
+        height: 44,
         lineHeight: 20,
-        borderBottomColor: '#7D7B7B',
-        borderBottomWidth: 1.5,
-        marginVertical: 4,
+        backgroundColor: "rgba(242, 242, 242, 1)",
+        marginVertical: 10,
+        paddingHorizontal: 10,
+        paddingRight: 35,
+        borderRadius: 5,
+    },
+    fromPass: {
+        position: "relative"
+    },
+    eye: {
+        position: "absolute",
+        right: 7,
+        marginVertical: 20,
     },
     formContainer: {
         paddingHorizontal: 32,
-        marginTop: 30,
+        marginTop: 10,
+        marginBottom: 10,
     },
     sloganContainer: {
         fontSize: 12,
