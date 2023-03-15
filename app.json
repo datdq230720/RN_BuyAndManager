@@ -11,15 +11,17 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "scheme": ["https://auth.expo.io/@anonymous/ProjectStore-263325de-36d1-4bc4-bdb6-79c199ccfd80",
+    "scheme": ["https://auth.expo.io/@datdq2307/ProjectStore",
      "3434239696820158"],
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.codewithbeto.ProjectStore"
     },
     "android": {
+      "package": "com.codewithbeto.ProjectStore",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"

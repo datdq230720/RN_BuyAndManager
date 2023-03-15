@@ -8,8 +8,11 @@ import { Entypo, AntDesign } from '@expo/vector-icons';
 import * as AuthSession from 'expo-auth-session';
 import * as Facebook from 'expo-auth-session/providers/facebook';
 import * as WebBrowser from 'expo-web-browser';
+import LoginFB from './LoginFB';
+import LoginGG from './LoginGG';
 
 WebBrowser.maybeCompleteAuthSession();
+//295955904584-55kkus18ahaq434q2tpk1o7prvv276p2.apps.googleusercontent.com
 
 
 export const Login = (props) => {
@@ -33,35 +36,6 @@ export const Login = (props) => {
         }
 
     }
-    const [request, response, promptAsync] = Facebook.useAuthRequest({
-        clientId: "3434239696820158",
-    });
-    if (request) {
-        console.log(
-            "You need to add this url to your authorized redirect urls on your Facebook app: " +
-            request.redirectUri
-        );
-    }
-    const loginApiFB = async () => {
-        const result = await promptAsync();
-        if (result.type !== "success") {
-            alert("Uh oh, something went wrong");
-            return;
-        } 
-    }
-    useEffect(() => {
-        if (response && response.type === "success" && response.authentication) {
-            (async () => {
-                const userInfoResponse = await fetch(
-                    `https://graph.facebook.com/me?access_token=${response.authentication.accessToken}&fields=id,name,picture.type(large)`
-                );
-                const userInfo = await userInfoResponse.json(); 
-                console.log("><>><------------------1"+JSON.stringify(userInfo)); 
-                await onLoginFB(userInfo.id, userInfo.picture.data.url)
-                console.log("><>><------------------2"); 
-            })();
-        }
-    }, [response]);
 
     const setPassEntry = async () => {
         if (entry === true) {
@@ -115,22 +89,16 @@ export const Login = (props) => {
                     <Text onPress={() => navigation.navigate('Register')} style={styles.register}>Đăng ký</Text>
                 </View>
                 <View style={styles.formContainer}>
-                    <View style={styles.iconLogin}>
+                    {/* <View style={styles.iconLogin}>
                         <Pressable
                             onPress={onLoginPress}
                             style={styles.buttonLogin}>
                             <Text style={{ color: "black" }}>Đăng nhập bằng Google</Text>
                         </Pressable>
                         <AntDesign style={styles.icon} name="google" size={24} color="black" />
-                    </View>
-                    <View style={styles.iconLogin}>
-                        <Pressable
-                            onPress={loginApiFB}
-                            style={styles.buttonLogin}>
-                            <Text style={{ color: "black" }}>Đăng nhập bằng Facebook</Text>
-                        </Pressable>
-                        <Entypo style={styles.icon} name="facebook" size={24} color="black" />
-                    </View>
+                    </View> */}
+                    <LoginGG/>
+                    <LoginFB/>
                 </View>
             </View>
         </ScrollView>

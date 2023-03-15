@@ -11,7 +11,7 @@ export const Profile = (props) => {
     const { username, manage, image, id } = user[0];
     let manager;
     if (user[0].manage === true) {
-        console.log("USER: " + JSON.stringify(user[0]));
+        console.log("USER: " + image);
         manager = "Người quản lý";
     } else {
         manager = "Người dùng";
@@ -98,8 +98,8 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     avatar: {
-        width: "80%",
-        height: "80%",
+        width: "90%",
+        height: "90%",
         borderRadius: 20,
     },
     nameContainer: {

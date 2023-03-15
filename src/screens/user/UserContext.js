@@ -93,9 +93,9 @@ export const UserContextProvider = (props) => {
             const res = await login(username);
             if (res.length == 0) {
                 let res2 = await register(username, '0ahjsfdjhabjhascja', image);
-                console.log("HAAAAAAAAAAAAAAAAAA" + JSON.stringify(res2));
                 if (res2.length != 0) {
-                    setUser(res2);
+                    const res = await login(username);
+                    setUser(res);
                     setIsLoggedIn(true);
                     return true;
                 } else {
@@ -113,6 +113,8 @@ export const UserContextProvider = (props) => {
         }
         return false;
     }
+
+    const [token, setToken] = useState("");
     return (
         <UserContext.Provider
             value={{
