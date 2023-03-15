@@ -6,14 +6,14 @@ import { ProductContext } from '../ProductContext';
 
 export const Profile = (props) => {
     const { navigation } = props;
-    const { _id, name, address, phone, avatar, dob, email } = data;
-    const { user, setIsLoggedIn } = useContext(UserContext);
 
+    const { user, setIsLoggedIn } = useContext(UserContext);
+    const { username, manage, image, id } = user[0];
     let manager;
     if (user[0].manage === true) {
         console.log("USER: " + JSON.stringify(user[0]));
         manager = "Người quản lý";
-    }else{
+    } else {
         manager = "Người dùng";
     }
 
@@ -22,14 +22,16 @@ export const Profile = (props) => {
             <Text style={styles.title}>ProfFile</Text>
             <View style={styles.infoContainer}>
                 <View style={styles.avatarContainer}>
-                    {
-                        avatar.trim.length == 0 ?
+                    {/* {
+                        image.trim.length == 0 ?
                             <Ionicons name="person-circle" size={34} color="black" />
                             :
-                            <Image source={{ uri: avatar }} resizeMode='cover'
+                            <Image source={{ uri: image }} resizeMode='cover'
                                 style={styles.avatar} />
 
-                    }
+                    } */}
+                    <Image source={{ uri: image }} resizeMode='cover'
+                        style={styles.avatar} />
                 </View>
                 <View style={styles.nameContainer}>
                     <Text numberOfLines={1} style={styles.name}>{user[0].username}</Text>

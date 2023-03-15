@@ -24,7 +24,7 @@ export const UserContextProvider = (props) => {
             const res = await login(username);
             if (res.length == 0) {
                 return status[1];
-            }else{
+            } else {
                 setUser(res);
                 _user = res[0];
                 return status[2];
@@ -39,7 +39,7 @@ export const UserContextProvider = (props) => {
             const _status = await checkUserName(username);
             if (_status == status[2]) {
                 console.log(user[0]);
-                
+
                 if (_user.password == password) {
                     return status[0];
                 } else {
@@ -56,7 +56,7 @@ export const UserContextProvider = (props) => {
     }
 
     const onLogin = async (username, password) => {
-        
+
         try {
             const _status = await checkPassWord(username, password);
             if (_status == status[0]) {
@@ -75,21 +75,48 @@ export const UserContextProvider = (props) => {
         try {
             const res = await checkUserName(username);
             if (res == status[1]) {
-                await register(username, password);
+                await register(username, password, "https://ionicframework.com/docs/img/demos/avatar.svg");
                 return true;
-            }else{
+            } else {
                 return false;
             }
-            
+
         } catch (error) {
             console.log('UserContext : 33, err: ', error);
+        }
+        return false;
+    }
+
+    const onLoginFB = async (username, image) => {
+
+        try {
+            const res = await login(username);
+            if (res.length == 0) {
+                let res2 = await register(username, '0ahjsfdjhabjhascja', image);
+                console.log("HAAAAAAAAAAAAAAAAAA" + JSON.stringify(res2));
+                if (res2.length != 0) {
+                    setUser(res2);
+                    setIsLoggedIn(true);
+                    return true;
+                } else {
+                    setIsLoggedIn(false)
+                    return false
+                }
+            } else {
+                setUser(res);
+                setIsLoggedIn(true);
+                return true;
+            }
+        } catch (error) {
+            console.log("loginbFB err:" + error);
+
         }
         return false;
     }
     return (
         <UserContext.Provider
             value={{
-                isLoggedIn, onLogin, onRegister, user, setIsLoggedIn
+                isLoggedIn, onLogin, onRegister, user, setIsLoggedIn, onLoginFB
             }}
         >
             {children}

@@ -4,49 +4,15 @@
       "username": "admin",
       "password": "123456",
       "manage": true,
+      "image": "https://ionicframework.com/docs/img/demos/avatar.svg",
       "id": 1
     },
     {
-      "username": "testlan1",
-      "password": "123456",
+      "username": "122788254086420",
+      "password": "0ahjsfdjhabjhascja",
       "manage": false,
+      "image": "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=122788254086420&height=200&width=200&ext=1681463410&hash=AeSbHDCg7s1xx-LV3YA",
       "id": 2
-    },
-    {
-      "username": "testlan2",
-      "password": "123456",
-      "manage": false,
-      "id": 3
-    },
-    {
-      "username": "testlan3",
-      "password": "123456",
-      "manage": false,
-      "id": 4
-    },
-    {
-      "username": "hahhaha",
-      "password": "654321",
-      "manage": false,
-      "id": 5
-    },
-    {
-      "username": "dat123",
-      "password": "123456",
-      "manage": false,
-      "id": 6
-    },
-    {
-      "username": "uer123",
-      "password": "123456",
-      "manage": false,
-      "id": 7
-    },
-    {
-      "username": "abc123",
-      "password": "123456",
-      "manage": false,
-      "id": 8
     }
   ],
   "cart": [],
