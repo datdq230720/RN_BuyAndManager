@@ -131,7 +131,6 @@ const styles = StyleSheet.create({
     },
     productImageContainer: {
         backgroundColor: '#F6F6F6',
-        height: 134,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 8,
@@ -158,10 +157,11 @@ const styles = StyleSheet.create({
         marginBottom: 16,
     },
     categoryContainer: {
-        padding: 24,
+        padding: 10,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
+        borderBottomWidth: 1,
     },
     title: {
         fontSize: 20,

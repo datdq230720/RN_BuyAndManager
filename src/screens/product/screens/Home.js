@@ -1,12 +1,12 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect, } from 'react'
 import {
     StyleSheet, Text, View, Image,
-    FlatList, Dimensions, Pressable
+    FlatList, Dimensions, Pressable, SafeAreaView
 } from 'react-native'
 import { ProductContext } from '../ProductContext';
 
 
-export const Home = (props) => { 
+export const Home = (props) => {
 
     const { navigation } = props;
     const { OnGetProductForHomePage } = useContext(ProductContext);
@@ -40,16 +40,16 @@ export const Home = (props) => {
                     </View>
                     <View style={styles.inforProduct}>
                         <View style={styles.productNameContainer}>
-                            <Text numberOfLines={1} style={styles.productName}>Name: {title}</Text>
+                            <Text numberOfLines={1} style={styles.productName}>{title}</Text>
                         </View>
                         <View style={styles.productNameContainer}>
-                            <Text numberOfLines={1} style={styles.productNomal}>category: {category}</Text>
+                            <Text numberOfLines={1} style={styles.productNomal}>{category}</Text>
                         </View>
                         <View style={styles.productNameContainer}>
-                            <Text style={styles.productPrice}>Price: {price}VND</Text>
+                            <Text style={styles.productPrice}>{price}VND</Text>
                         </View>
                         <View style={styles.productNameContainer}>
-                            <Text style={styles.productNomal}>Quantity: {quantity}</Text>
+                            <Text style={styles.productNomal}>{quantity}</Text>
                         </View>
                     </View>
 
@@ -61,7 +61,7 @@ export const Home = (props) => {
     const renderHeader = () => {
         return (
             <View>
-                <Image style = {{height: 300, width: "100%", resizeMode: "cover"}} source={require('../../../assets/images/banner_manage_store2.jpg')} />
+                <Image style={{ height: 300, width: "100%", resizeMode: "cover" }} source={require('../../../assets/images/banner_manage_store2.jpg')} />
             </View>
         )
     }
@@ -72,12 +72,15 @@ export const Home = (props) => {
                 isLoading == true ?
                     <Text style = {{textAlign: 'center', marginTop: 50}}>Đang tải dữ liêu</Text> :
                     <FlatList
-                        ListHeaderComponent={renderHeader}
-                        data={data} renderItem={renderItem} //hiển thị 1 item
+                        ListHeaderComponent={renderHeader}  
+                        numColumns={2}
+                        data={data} renderItem={
+                            renderItem
+                        } //hiển thị 1 item
                         keyExtractor={item => Math.random()} />
             }
-
         </View>
+
     )
 }
 
@@ -86,16 +89,16 @@ const styles = StyleSheet.create({
     inforProduct: {
         padding: 5,
         flex: 1,
-        marginLeft: 10,
+        marginLeft: 5,
     },
     productPrice: {
         color: '#009245',
-        fontSize: 20,
+        fontSize: 15,
         fontWeight: '600',
         marginTop: 5,
     },
     productPriceContainer: {},
-    productNomal:{
+    productNomal: {
 
     },
     productName: {
@@ -110,14 +113,12 @@ const styles = StyleSheet.create({
     },
     productImageContainer: {
         backgroundColor: '#F6F6F6',
-        height: 134,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 8,
         marginRight: 3,
     },
     product: {
-        width: '100%',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -134,16 +135,26 @@ const styles = StyleSheet.create({
         color: '#221F1F',
         fontSize: 24,
         fontWeight: '500',
-        marginBottom: 16,
     },
     categoryContainer: {
-        padding: 24,
+        padding: 5,
+        flex: 0.5,
     },
 
+    // container: {
+    //     // width: '100%',
+    //     // height: '100%',
+    //     backgroundColor: 'white',
+    // },
     container: {
-        // width: '100%',
-        // height: '100%',
-        flexGrow: 1,
+        flex: 1,
         backgroundColor: 'white',
-    }
+    },
+    container2: {
+        backgroundColor: 'black',
+        flex: 0.5,
+        height: 200,
+        margin: 10
+    },
+
 })
