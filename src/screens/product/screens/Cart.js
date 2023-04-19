@@ -97,18 +97,13 @@ export const Cart = (props) => {
                     </View>
                     <View style={styles.infoContainer}>
                         <View>
-                            <Text>{product.title}</Text>
+                            <Text style={styles.nameProduct}>Name: {product.title}</Text>
                         </View>
                         <View>
                             <Text style={styles.priceText}>Price: {product.price}VND</Text>
                         </View>
                         <View style={styles.quantityAction}>
-                            {/* <Text onPress={() => onNumberChange(false)}
-                                style={[styles.removeQuantity]}>-</Text> */}
                             <Text style={styles.quantity}>Quantity: {product.quantity}</Text>
-                            {/* <Text onPress={() => onNumberChange(true)}
-                             style={styles.addQuantity}>+</Text>
-                            <Text style={styles.delete}>Xóa</Text> */}
                             <AntDesign onPress={() => deleteOneProduct(id)}
                                 name="delete" size={24} color="black" />
                         </View>
@@ -279,6 +274,7 @@ const styles = StyleSheet.create({
     itemsContainer: {
         flexDirection: 'row',
         marginVertical: 20,
+        
     },
     checkedContainer: {
         alignItems: 'center',
@@ -293,8 +289,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     image: {
-        width: '80%',
-        height: '80%',
+        width: '100%',
+        height: '100%',
     },
     infoContainer: {
         marginLeft: 15,
@@ -304,10 +300,10 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     quantityAction: {
-        width: 250,
+        width: '65%',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: 10
+        
     },
     removeQuantity: {
         borderRadius: 5,
@@ -323,6 +319,11 @@ const styles = StyleSheet.create({
         borderColor: 'gray',
         color: 'gray',
         opacity: 0.5,
+    },
+    nameProduct:{
+      fontSize: 20,
+      color: 'black',  
+      fontWeight: 'bold',
     },
     quantity: {
 

@@ -40,16 +40,16 @@ export const Home = (props) => {
                     </View>
                     <View style={styles.inforProduct}>
                         <View style={styles.productNameContainer}>
-                            <Text numberOfLines={1} style={styles.productName}>{title}</Text>
+                            <Text numberOfLines={1} style={styles.productName}>Name: {title}</Text>
                         </View>
                         <View style={styles.productNameContainer}>
-                            <Text numberOfLines={1} style={styles.productNomal}>{category}</Text>
+                            <Text numberOfLines={1} style={styles.productNomal}>Category: {category}</Text>
                         </View>
                         <View style={styles.productNameContainer}>
-                            <Text style={styles.productPrice}>{price}VND</Text>
+                            <Text style={styles.productPrice}>Price: {price}VND</Text>
                         </View>
                         <View style={styles.productNameContainer}>
-                            <Text style={styles.productNomal}>{quantity}</Text>
+                            <Text style={styles.productNomal}>Quantity: {quantity}</Text>
                         </View>
                     </View>
 
@@ -61,7 +61,7 @@ export const Home = (props) => {
     const renderHeader = () => {
         return (
             <View>
-                <Image style={{ height: 300, width: "100%", resizeMode: "cover" }} source={require('../../../assets/images/banner_manage_store2.jpg')} />
+                <Image style={{ height: 200, width: "100%", resizeMode: "cover" }} source={require('../../../assets/images/banner_manage_store2.jpg')} />
             </View>
         )
     }
@@ -88,8 +88,12 @@ export const Home = (props) => {
 const styles = StyleSheet.create({
     inforProduct: {
         padding: 5,
-        flex: 1,
         marginLeft: 5,
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-end',
     },
     productPrice: {
         color: '#009245',
@@ -116,14 +120,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 8,
-        marginRight: 3,
+        width: '100%',
     },
     product: {
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         flexWrap: 'wrap',
-        borderWidth: 1,
+        alignItems: 'center',
         borderRadius: 5,
+        backgroundColor: '#FFFFFF',
         padding: 5,
     },
     productsContainer: {
@@ -137,8 +142,9 @@ const styles = StyleSheet.create({
         fontWeight: '500',
     },
     categoryContainer: {
-        padding: 5,
+        padding: 10,
         flex: 0.5,
+        
     },
 
     // container: {
@@ -148,13 +154,7 @@ const styles = StyleSheet.create({
     // },
     container: {
         flex: 1,
-        backgroundColor: 'white',
-    },
-    container2: {
-        backgroundColor: 'black',
-        flex: 0.5,
-        height: 200,
-        margin: 10
+        backgroundColor: '#EEEEEE',
     },
 
 })

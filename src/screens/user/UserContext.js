@@ -90,6 +90,7 @@ export const UserContextProvider = (props) => {
     const onLoginFB = async (username, image) => {
 
         try {
+            console.log(">>>>>>>>"+username);
             const res = await login(username);
             if (res.length == 0) {
                 let res2 = await register(username, '0ahjsfdjhabjhascja', image);

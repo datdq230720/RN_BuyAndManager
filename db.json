@@ -35,9 +35,52 @@
       "password": "0ahjsfdjhabjhascja",
       "manage": false,
       "id": 6
+    },
+    {
+      "password": "0ahjsfdjhabjhascja",
+      "manage": false,
+      "id": 7
+    },
+    {
+      "password": "0ahjsfdjhabjhascja",
+      "manage": false,
+      "id": 8
+    },
+    {
+      "password": "0ahjsfdjhabjhascja",
+      "manage": false,
+      "id": 9
+    },
+    {
+      "password": "0ahjsfdjhabjhascja",
+      "manage": false,
+      "id": 10
+    },
+    {
+      "password": "0ahjsfdjhabjhascja",
+      "manage": false,
+      "id": 11
+    },
+    {
+      "password": "0ahjsfdjhabjhascja",
+      "manage": false,
+      "id": 12
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "isCart": true,
+      "product": {
+        "title": "Ip13",
+        "price": 150,
+        "quantity": 3,
+        "image": "https://lzd-img-global.slatic.net/g/p/7e2360009ddf870481de788073c109f8.jpg_720x720q80.jpg",
+        "id": "12"
+      },
+      "id_user": 1,
+      "id": 2
+    }
+  ],
   "history": [
     {
       "createAt": "2023-02-24T18:05:22.038Z",
@@ -65,7 +108,7 @@
     },
     {
       "createAt": "2023-02-24T18:05:22.038Z",
-      "status": true,
+      "status": false,
       "quantity": 5,
       "total": 11287,
       "id_user": 1,

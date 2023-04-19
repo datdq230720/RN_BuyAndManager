@@ -36,14 +36,14 @@ const PartialView = (props) => {
                 id: id
             },
             id_user: user[0].id,
-            
+
         }
         const status = await AddMyCar(id, user[0].id, data);
         if (status == 201 || status == 200) {
             ToastAndroid.show('Thêm thành công', ToastAndroid.BOTTOM);
             navigation.navigate('Home')
         }
-        
+
     }
     return (
         <>
@@ -51,17 +51,18 @@ const PartialView = (props) => {
                 <Text style={styles.productPrice}>{price}$</Text>
                 <Text style={styles.productTitle}>Chi tiết sản phẩm</Text>
                 <View style={styles.productDetail}>
-                    <Text style={styles.productDetailText}>Loại</Text>
+                    <Text style={styles.productDetailText}>Hãng</Text>
                     <Text style={styles.productDetailText}>{category}</Text>
                 </View>
-                <View style={styles.productDetail}>
-                    <Text style={styles.productDetailText}>Chi tiết</Text>
-                    <Text style={styles.productDetailText}>{description}</Text>
-                </View>
+
                 <View style={styles.productDetail}>
                     <Text style={styles.productDetailText}>Tình trạng</Text>
                     <Text style={styles.productDetailText}>Còn {quantity} sp</Text>
                 </View>
+                <View style={styles.productDetail}>
+                    <Text style={styles.productDetailText}>Thông tin:</Text>
+                </View>
+                <Text style={{marginTop: 5}}>{description}</Text>
             </View>
             <View style={styles.cartProcessContainer}>
                 <View style={styles.processQuantity}>
@@ -128,10 +129,13 @@ export const Detail = (props) => {
                 </View>
                 <View style={styles.productImagesContainer}>
                     <PagerView style={styles.productImagesPager} initialPage={0} orientation='horizontal'>
-                        <Image key={Math.random()}
-                            source={{ uri: image }}
-                            style={styles.ProductImage}
-                            resizeMode='cover' />
+                        <View style={styles.productImagesPager}>
+                            <Image key={Math.random()}
+                                source={{ uri: image }}
+                                style={styles.ProductImage}
+                                resizeMode='cover'
+                            />
+                        </View>
                     </PagerView>
                 </View>
                 <PartialView product={product} />
@@ -144,6 +148,7 @@ const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
         backgroundColor: 'white',
+        marginBottom: 10
     },
     productNameContainer: {
         marginTop: 30,
@@ -156,15 +161,23 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     productImagesContainer: {
-        height: 270,
+        height: 200,
         width: '100%',
+
+
     },
     productImagesPager: {
-        flex: 1,
-    },
-    ProductImage: {
         height: '100%',
         width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    ProductImage: {
+        height: 200,
+        width: 200,
+
     },
     productInfoContainer: {
         paddingHorizontal: 48,
@@ -272,7 +285,7 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
     },
     checkColor: {
-        backgroundColor: '#007537'
+        backgroundColor: 'red'
     },
 });
 

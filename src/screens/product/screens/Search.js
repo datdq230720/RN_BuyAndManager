@@ -43,7 +43,7 @@ export const Search = (props) => {
             fetchData();
         })
         return unsubscribe;
-    }, [props.navigation, onSearch]);
+    }, [props.navigation, searchValue]);
 
     const onSearch = async () => {
         const res = await OnGetProductSearch(searchValue);
